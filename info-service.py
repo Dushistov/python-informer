@@ -22,7 +22,7 @@ class GtalkInformer(dbus.service.Object):
         print (str(msg))
         self.send_msg_via_xmpp(self.to_inform, msg)
 
-    def send_msg_via_xmpp(user, msg):
+    def send_msg_via_xmpp(self, user, msg):
         jid = xmpp.protocol.JID(self.user_id)
         cl = xmpp.Client(jid.getDomain(),debug=[])
         cl.connect()
