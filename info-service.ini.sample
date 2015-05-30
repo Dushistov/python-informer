@@ -1,4 +1,4 @@
 [gtalk]
-user_id = "some@host"
-user_pass = "somepass"
-to_inform = "another@host"
+user_id = some@host
+user_pass = somepass
+to_inform = another@host
