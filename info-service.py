@@ -11,7 +11,7 @@ class GtalkInformer(dbus.service.Object):
 
     def __init__(self, session_bus, obj_name,
                  user_id, user_pass, to_inform):
-        super(dbus.service.Object, self).__init__(session_bus, obj_name)
+        super(GtalkInformer, self).__init__(session_bus, obj_name)
         self.user_id = user_id
         self.user_pass = user_pass
         self.to_inform = to_inform
