@@ -20,7 +20,7 @@ class GtalkInformer(dbus.service.Object):
                          in_signature='s', out_signature='')
     def send_msg(self, msg):
         print (str(msg))
-        send_msg_via_xmpp(self.to_inform, msg)
+        self.send_msg_via_xmpp(self.to_inform, msg)
 
     def send_msg_via_xmpp(user, msg):
         jid = xmpp.protocol.JID(self.user_id)
