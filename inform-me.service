@@ -1,0 +1,7 @@
+[Unit]
+Description=Service for informing me
+
+[Service]
+Type=dbus
+BusName=local.inform.GTalk
+ExecStart=/usr/bin/python2 /usr/bin/info-service.py
