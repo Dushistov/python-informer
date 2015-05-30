@@ -25,7 +25,7 @@ class GtalkInformer(dbus.service.Object):
     def send_msg_via_xmpp(self, user, msg):
         jid = xmpp.protocol.JID(self.user_id)
         cl = xmpp.Client(jid.getDomain(),debug=[])
-        cl.connect()
+        cl.connect(server=('talk.google.com', 5223))
         cl.auth(jid.getNode(), self.user_pass)
         cl.send(xmpp.protocol.Message(user, msg, typ='chat'))
     
