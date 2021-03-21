@@ -1,11 +1,11 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
-import gobject
+from gi.repository import GLib
 import dbus
 import dbus.service
 import dbus.mainloop.glib
 import xmpp
-import ConfigParser
+from configparser import ConfigParser
 import unittest
 
 class GtalkInformer(dbus.service.Object):
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     session_bus = dbus.SystemBus()
     name = dbus.service.BusName("local.inform.GTalk", session_bus)
 
-    cfg = ConfigParser.ConfigParser()
+    cfg = ConfigParser()
     cfg.read("/etc/info-service.ini")
     object = GtalkInformer(session_bus, '/bob',
                            user_id = cfg.get("gtalk", "user_id"),
@@ -47,9 +47,9 @@ if __name__ == '__main__':
                            to_inform = cfg.get("gtalk", "to_inform")
     )
 
-    mainloop = gobject.MainLoop()
-    print "Running informer service."
-    mainloop.run()
+    loop = GLib.MainLoop()
+    print("Running informer service.")
+    loop.run()
 
 class TestGtalkInformer(unittest.TestCase):
     def test_send_msg(self):
