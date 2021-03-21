@@ -1,5 +1,5 @@
 [D-BUS Service]
 Name=local.inform.GTalk
-Exec=/usr/bin/python2 /usr/bin/info-service.py
+Exec=/usr/bin/python3 /usr/bin/info-service.py
 User=root
 SystemdService=inform-me.service
